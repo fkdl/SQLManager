@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Text.RegularExpressions;
 using System.Configuration;
 
 
@@ -26,44 +25,66 @@ namespace SQLManager
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
 
-            DataTable rows = new DataTable();
+            DataTable dt = new DataTable();
+            Database db = new Database();
 
-
+            //Verificar si hay texto seleccionado
             string query;
-            if (queryString.SelectedText.Length > 0)
+            if (txtQuery.SelectedText.Length > 0)
             {
-                query = queryString.SelectedText;
+                query = txtQuery.SelectedText;
             }
             else
             {
-                query = queryString.Text;
-            }
+                query = txtQuery.Text;
+            }            
 
-            var regex = new Regex(@"(^|\s|\n)(?:use\s)(?<word>\b\S+\b)", RegexOptions.IgnoreCase);
-            var matchCollection = regex.Matches(query);
+            //Llena datatable con el resultado del query
+            dt = db.query(query);
 
-            foreach (Match match in matchCollection)
+            //Obtiene el mensaje del query
+            string msj = db.Message;
+
+            //Verifica si el query trajo algun dato
+            if ( dt.Columns.Count > 0)
             {
-                MessageBox.Show(match.Groups["word"].Value);
+                if ( !tabsRM.TabPages.Contains(tabResults) )
+                {
+                    tabsRM.TabPages.Insert(0, tabResults);
+
+                }
+                
+                tabsRM.SelectedTab = tabResults;
+                viewResults.DataSource = dt;
+            }
+            else
+            {
+                tabsRM.TabPages.Remove(tabResults);
+                tabResults.Hide();
             }
 
+            if ( !tabsRM.TabPages.Contains(tabMessages) )
+            {
+                tabsRM.TabPages.Add(tabMessages);
+
+            }
             
-           
-
-
+            txtMessages.Text = msj;
+            splitContainer1.Panel2.Show();
         }
 
-        SqlConnection conn;
-        SqlCommand cmd;
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=SOF105;Integrated Security=true; User ID=; Password=";
-            conn = new SqlConnection(connectionString);
-            cmd = new SqlCommand();
-            cmd.Connection = conn;
+            //Oculta los tabs del resultado del query
+            tabsRM.TabPages.Remove(tabResults);
+            tabsRM.TabPages.Remove(tabMessages);
+            //splitContainer1.IsSplitterFixed = true;
+            splitContainer1.Panel2.Hide();
+            //splitContainer1.SplitterDistance = 999;
+
         }
     }
 }
