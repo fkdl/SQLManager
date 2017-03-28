@@ -27,6 +27,8 @@ namespace SQLManager
 
         public void button2_Click(object sender, EventArgs e)
         {
+            splitContainer1.Panel2Collapsed = true;
+            splitContainer1.IsSplitterFixed = true;
 
             DataTable dt = new DataTable();
             Database db = new Database();
@@ -66,25 +68,46 @@ namespace SQLManager
                 tabResults.Hide();
             }
 
-            if ( !tabsRM.TabPages.Contains(tabMessages) )
-            {
-                tabsRM.TabPages.Add(tabMessages);
-
-            }
             
             txtMessages.Text = msj;
-            splitContainer1.Panel2.Show();
+            splitContainer1.Panel2Collapsed = false;
+            splitContainer1.IsSplitterFixed = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            //Oculta los tabs del resultado del query
-            tabsRM.TabPages.Remove(tabResults);
-            tabsRM.TabPages.Remove(tabMessages);
-            //splitContainer1.IsSplitterFixed = true;
-            splitContainer1.Panel2.Hide();
-            //splitContainer1.SplitterDistance = 999;
+        {       
+            splitContainer1.Panel2Collapsed = true;
+            splitContainer1.IsSplitterFixed = true;
 
+            Database db = new Database();
+            DataTable dbList = new DataTable();
+
+            string query = "EXEC SP_DATABASES";
+
+            dbList = db.query(query);
+
+            cbMenuDBList.ComboBox.DataSource = dbList;
+            cbMenuDBList.ComboBox.DisplayMember = "DATABASE_NAME";
+
+            //MessageBox.Show(db.DatabaseName);
+
+
+        }
+
+        private void cbMenuDBList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedItem = cbMenuDBList.ComboBox.Text;
+            if (selectedItem != "System.Data.DataRowView")
+            {
+                Database db = new Database();
+
+                string query = "USE " + selectedItem;
+
+                db.query(query);
+
+                //MessageBox.Show(query);
+            }
+            
         }
     }
 }

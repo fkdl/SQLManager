@@ -12,11 +12,12 @@ namespace SQLManager
 {
 
     class Database
-    {                
-        public string Message;        
+    {
+        public string Message;
+        public string DatabaseName { get; }
         private string InfoMessage;
-        public string ErrorMessage;
         private string ConnectionString;
+        
 
         //DEFAULT CONSTRUCTOR
         public Database()

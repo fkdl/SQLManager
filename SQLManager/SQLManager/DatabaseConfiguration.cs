@@ -48,7 +48,6 @@ namespace SQLManager
             try
             {
                 ConfigurationManager.AppSettings["Database"] = database;
-                System.Windows.Forms.MessageBox.Show(ConfigurationManager.AppSettings["Database"]);
             }
             catch
             {

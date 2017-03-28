@@ -38,36 +38,37 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cbMenuDBList = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tabsRM = new System.Windows.Forms.TabControl();
-            this.tabMessages = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtMessages = new System.Windows.Forms.TextBox();
-            this.tabResults = new System.Windows.Forms.TabPage();
-            this.viewResults = new System.Windows.Forms.DataGridView();
             this.tabsQuery = new System.Windows.Forms.TabControl();
             this.SQLQuery1 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtQuery = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tabsRM = new System.Windows.Forms.TabControl();
+            this.tabResults = new System.Windows.Forms.TabPage();
+            this.viewResults = new System.Windows.Forms.DataGridView();
+            this.tabMessages = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtMessages = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tabsRM.SuspendLayout();
-            this.tabMessages.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tabResults.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.viewResults)).BeginInit();
             this.tabsQuery.SuspendLayout();
             this.SQLQuery1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tabsRM.SuspendLayout();
+            this.tabResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.viewResults)).BeginInit();
+            this.tabMessages.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
@@ -116,7 +117,7 @@
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripSeparator1,
-            this.toolStripComboBox1,
+            this.cbMenuDBList,
             this.toolStripSeparator2,
             this.toolStripButton3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
@@ -148,6 +149,13 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // cbMenuDBList
+            // 
+            this.cbMenuDBList.MergeAction = System.Windows.Forms.MergeAction.Replace;
+            this.cbMenuDBList.Name = "cbMenuDBList";
+            this.cbMenuDBList.Size = new System.Drawing.Size(150, 25);
+            this.cbMenuDBList.SelectedIndexChanged += new System.EventHandler(this.cbMenuDBList_SelectedIndexChanged);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -162,12 +170,6 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "Execute (F5)";
             // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.MergeAction = System.Windows.Forms.MergeAction.Replace;
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(150, 25);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,14 +183,75 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.tabsQuery);
+            this.splitContainer1.Panel1MinSize = 0;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabsRM);
-            this.splitContainer1.Size = new System.Drawing.Size(942, 336);
-            this.splitContainer1.SplitterDistance = 198;
+            this.splitContainer1.Panel2MinSize = 0;
+            this.splitContainer1.Size = new System.Drawing.Size(942, 313);
+            this.splitContainer1.SplitterDistance = 173;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tabsQuery
+            // 
+            this.tabsQuery.Controls.Add(this.SQLQuery1);
+            this.tabsQuery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabsQuery.Location = new System.Drawing.Point(0, 0);
+            this.tabsQuery.Name = "tabsQuery";
+            this.tabsQuery.SelectedIndex = 0;
+            this.tabsQuery.Size = new System.Drawing.Size(942, 173);
+            this.tabsQuery.TabIndex = 5;
+            // 
+            // SQLQuery1
+            // 
+            this.SQLQuery1.Controls.Add(this.panel3);
+            this.SQLQuery1.Controls.Add(this.panel2);
+            this.SQLQuery1.Location = new System.Drawing.Point(4, 22);
+            this.SQLQuery1.Name = "SQLQuery1";
+            this.SQLQuery1.Padding = new System.Windows.Forms.Padding(3);
+            this.SQLQuery1.Size = new System.Drawing.Size(934, 147);
+            this.SQLQuery1.TabIndex = 0;
+            this.SQLQuery1.Text = "SQLQuery1.sql";
+            this.SQLQuery1.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel3.Controls.Add(this.txtQuery);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(23, 3);
+            this.panel3.Margin = new System.Windows.Forms.Padding(10);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
+            this.panel3.Size = new System.Drawing.Size(908, 141);
+            this.panel3.TabIndex = 4;
+            // 
+            // txtQuery
+            // 
+            this.txtQuery.AcceptsTab = true;
+            this.txtQuery.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtQuery.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtQuery.HideSelection = false;
+            this.txtQuery.Location = new System.Drawing.Point(10, 5);
+            this.txtQuery.Multiline = true;
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtQuery.Size = new System.Drawing.Size(898, 136);
+            this.txtQuery.TabIndex = 2;
+            this.txtQuery.WordWrap = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(20, 141);
+            this.panel2.TabIndex = 3;
             // 
             // tabsRM
             // 
@@ -199,61 +262,8 @@
             this.tabsRM.Multiline = true;
             this.tabsRM.Name = "tabsRM";
             this.tabsRM.SelectedIndex = 0;
-            this.tabsRM.Size = new System.Drawing.Size(942, 133);
+            this.tabsRM.Size = new System.Drawing.Size(942, 135);
             this.tabsRM.TabIndex = 4;
-            // 
-            // tabMessages
-            // 
-            this.tabMessages.Controls.Add(this.panel4);
-            this.tabMessages.Location = new System.Drawing.Point(4, 22);
-            this.tabMessages.Name = "tabMessages";
-            this.tabMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMessages.Size = new System.Drawing.Size(934, 71);
-            this.tabMessages.TabIndex = 1;
-            this.tabMessages.Text = "Messages";
-            this.tabMessages.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel4.Controls.Add(this.txtMessages);
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Margin = new System.Windows.Forms.Padding(10);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(928, 65);
-            this.panel4.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.AcceptsTab = true;
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(20, 20);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(908, 45);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.WordWrap = false;
-            // 
-            // txtMessages
-            // 
-            this.txtMessages.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMessages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMessages.HideSelection = false;
-            this.txtMessages.Location = new System.Drawing.Point(20, 20);
-            this.txtMessages.Margin = new System.Windows.Forms.Padding(20);
-            this.txtMessages.Multiline = true;
-            this.txtMessages.Name = "txtMessages";
-            this.txtMessages.ReadOnly = true;
-            this.txtMessages.Size = new System.Drawing.Size(908, 45);
-            this.txtMessages.TabIndex = 0;
             // 
             // tabResults
             // 
@@ -261,7 +271,7 @@
             this.tabResults.Location = new System.Drawing.Point(4, 22);
             this.tabResults.Name = "tabResults";
             this.tabResults.Padding = new System.Windows.Forms.Padding(3);
-            this.tabResults.Size = new System.Drawing.Size(934, 107);
+            this.tabResults.Size = new System.Drawing.Size(934, 109);
             this.tabResults.TabIndex = 0;
             this.tabResults.Text = "Results";
             this.tabResults.UseVisualStyleBackColor = true;
@@ -283,67 +293,70 @@
             this.viewResults.Name = "viewResults";
             this.viewResults.ReadOnly = true;
             this.viewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.viewResults.Size = new System.Drawing.Size(928, 101);
+            this.viewResults.Size = new System.Drawing.Size(928, 103);
             this.viewResults.TabIndex = 3;
             // 
-            // tabsQuery
+            // tabMessages
             // 
-            this.tabsQuery.Controls.Add(this.SQLQuery1);
-            this.tabsQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabsQuery.Location = new System.Drawing.Point(0, 0);
-            this.tabsQuery.Name = "tabsQuery";
-            this.tabsQuery.SelectedIndex = 0;
-            this.tabsQuery.Size = new System.Drawing.Size(942, 198);
-            this.tabsQuery.TabIndex = 5;
+            this.tabMessages.Controls.Add(this.panel4);
+            this.tabMessages.Location = new System.Drawing.Point(4, 22);
+            this.tabMessages.Name = "tabMessages";
+            this.tabMessages.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMessages.Size = new System.Drawing.Size(934, 109);
+            this.tabMessages.TabIndex = 1;
+            this.tabMessages.Text = "Messages";
+            this.tabMessages.UseVisualStyleBackColor = true;
             // 
-            // SQLQuery1
+            // panel4
             // 
-            this.SQLQuery1.Controls.Add(this.panel3);
-            this.SQLQuery1.Controls.Add(this.panel2);
-            this.SQLQuery1.Location = new System.Drawing.Point(4, 22);
-            this.SQLQuery1.Name = "SQLQuery1";
-            this.SQLQuery1.Padding = new System.Windows.Forms.Padding(3);
-            this.SQLQuery1.Size = new System.Drawing.Size(934, 172);
-            this.SQLQuery1.TabIndex = 0;
-            this.SQLQuery1.Text = "SQLQuery1.sql";
-            this.SQLQuery1.UseVisualStyleBackColor = true;
+            this.panel4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel4.Controls.Add(this.txtMessages);
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Margin = new System.Windows.Forms.Padding(10);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(928, 103);
+            this.panel4.TabIndex = 5;
             // 
-            // panel2
+            // txtMessages
             // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(20, 166);
-            this.panel2.TabIndex = 3;
+            this.txtMessages.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtMessages.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMessages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMessages.HideSelection = false;
+            this.txtMessages.Location = new System.Drawing.Point(20, 20);
+            this.txtMessages.Margin = new System.Windows.Forms.Padding(20);
+            this.txtMessages.Multiline = true;
+            this.txtMessages.Name = "txtMessages";
+            this.txtMessages.ReadOnly = true;
+            this.txtMessages.Size = new System.Drawing.Size(908, 83);
+            this.txtMessages.TabIndex = 0;
             // 
-            // panel3
+            // textBox1
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.txtQuery);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(23, 3);
-            this.panel3.Margin = new System.Windows.Forms.Padding(10);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(908, 166);
-            this.panel3.TabIndex = 4;
+            this.textBox1.AcceptsTab = true;
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.HideSelection = false;
+            this.textBox1.Location = new System.Drawing.Point(20, 20);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox1.Size = new System.Drawing.Size(908, 83);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.WordWrap = false;
             // 
-            // txtQuery
+            // panel1
             // 
-            this.txtQuery.AcceptsTab = true;
-            this.txtQuery.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtQuery.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtQuery.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtQuery.HideSelection = false;
-            this.txtQuery.Location = new System.Drawing.Point(10, 5);
-            this.txtQuery.Multiline = true;
-            this.txtQuery.Name = "txtQuery";
-            this.txtQuery.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtQuery.Size = new System.Drawing.Size(898, 161);
-            this.txtQuery.TabIndex = 2;
-            this.txtQuery.WordWrap = false;
+            this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 362);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(942, 23);
+            this.panel1.TabIndex = 8;
             // 
             // Form1
             // 
@@ -354,9 +367,12 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -366,16 +382,16 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.tabsRM.ResumeLayout(false);
-            this.tabMessages.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.tabResults.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.viewResults)).EndInit();
             this.tabsQuery.ResumeLayout(false);
             this.SQLQuery1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.tabsRM.ResumeLayout(false);
+            this.tabResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.viewResults)).EndInit();
+            this.tabMessages.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,8 +408,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabsQuery;
         private System.Windows.Forms.TabPage SQLQuery1;
@@ -407,6 +421,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtMessages;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripComboBox cbMenuDBList;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }
 
