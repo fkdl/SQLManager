@@ -81,7 +81,7 @@
             this.btnConnect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnConnect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnect.Location = new System.Drawing.Point(107, 276);
+            this.btnConnect.Location = new System.Drawing.Point(109, 276);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 7;
@@ -99,14 +99,13 @@
             // 
             // cmbServer
             // 
-            this.cmbServer.FormattingEnabled = true;
             this.cmbServer.Items.AddRange(new object[] {
             "LAPTOP-I55RC7Q1\\SQLEXPRESS"});
             this.cmbServer.Location = new System.Drawing.Point(222, 115);
             this.cmbServer.Name = "cmbServer";
             this.cmbServer.Size = new System.Drawing.Size(160, 21);
             this.cmbServer.TabIndex = 8;
-            this.cmbServer.Text = "LAPTOP-I55RC7Q1\\SQLEXPRESS";
+            this.cmbServer.Text = "localhost\\SQLEXPRESS";
             // 
             // cmbAuthentication
             // 
@@ -122,12 +121,11 @@
             // 
             // cmbDatabase
             // 
-            this.cmbDatabase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDatabase.FormattingEnabled = true;
             this.cmbDatabase.Location = new System.Drawing.Point(222, 142);
             this.cmbDatabase.Name = "cmbDatabase";
             this.cmbDatabase.Size = new System.Drawing.Size(160, 21);
             this.cmbDatabase.TabIndex = 10;
+            this.cmbDatabase.Text = "SOF105";
             this.cmbDatabase.SelectedIndexChanged += new System.EventHandler(this.cmbDatabase_SelectedIndexChanged);
             // 
             // frmLogin
@@ -143,6 +141,8 @@
             this.Controls.Add(this.cmbAuthentication);
             this.Controls.Add(this.cmbDatabase);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.Text = "Conectarse a la base de datos";
             this.Load += new System.EventHandler(this.Form2_Load);

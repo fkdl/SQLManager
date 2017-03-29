@@ -47,13 +47,25 @@ namespace SQLManager
         {
             try
             {
-                ConfigurationManager.AppSettings["Database"] = database;
+                ConfigurationManager.AppSettings["Database"] = database; 
             }
             catch
             {
                 throw;
             }
             
+        }
+
+        public void updateAttribute(string key, string value)
+        {
+            try
+            {
+                ConfigurationManager.AppSettings[key] = value;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
     }

@@ -12,7 +12,7 @@ using System.Collections.Specialized;
 
 namespace SQLManager
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin: Form
     {
         SqlConnection con;
         public frmLogin()
@@ -22,7 +22,7 @@ namespace SQLManager
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 con = new SqlConnection("Data Source=" + cmbServer.Text + "; Integrated Security=True;");
 
@@ -47,7 +47,7 @@ namespace SQLManager
             {
                 con.Close();
             }
-
+            */
         }
 
         private void cmbAuthentication_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,34 +128,34 @@ namespace SQLManager
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            string connectionString = "";
-            NameValueCollection data = new NameValueCollection();
+            DatabaseConfiguration dbConfig = new DatabaseConfiguration();
+
+            dbConfig.updateAttribute("ServerName", cmbServer.Text);
+            dbConfig.updateAttribute("Database", cmbDatabase.Text);
+
             switch (cmbAuthentication.SelectedIndex)
             {
                 case 0:
-                    data["server"] = cmbServer.Text;
-                    data["database"] = cmbDatabase.Text;
-                    data["security"] = "windows";
-                    connectionString = "Data Source = " + cmbServer.Text + ";Initial Catalog=" + cmbDatabase.Text + "; Integrated Security = True; ";
-
+                    dbConfig.updateAttribute("IntegratedSecurit", "SSPI");
                     break;
                 case 1:
-                    connectionString = "Data Source = " + cmbServer.Text + ";Initial Catalog=" + cmbDatabase.Text + "; User Id=" + txtUser.Text + ";Password=" + txtPassword.Text + "; ";
-                    data["server"] = cmbServer.Text;
-                    data["security"] = "sql";
-                    data["database"] = cmbDatabase.Text;
-                    data["user"] = txtUser.Text;
-                    data["password"] = txtPassword.Text;
+                    dbConfig.updateAttribute("IntegratedSecurit", "False");
+                    dbConfig.updateAttribute("Username", txtUser.Text);
+                    dbConfig.updateAttribute("Password", txtPassword.Text);
                     break;
             }
-            if (checkConecction(connectionString))
+
+            Database db = new Database();
+
+            if (db.isConnected())
             {
-                frmSQLBuilder workspace = new frmSQLBuilder();
-                //workspace.setData(data);
-                workspace.Show();
-                //this.Hide();
+                MessageBox.Show("Conectado Correctamente");
+                var frmSQLBuilder = Application.OpenForms["frmSQLBuilder"];
+                //frmSQLBuilder.Enabled = true;
+                ((frmSQLBuilder)this.Owner).showQueryContainer();
+                this.Close();
             }
-            //MessageBox.Show(connectionString);
+           
 
         }
     }

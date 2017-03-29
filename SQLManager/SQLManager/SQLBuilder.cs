@@ -87,8 +87,8 @@ namespace SQLManager
         private void Form1_Load(object sender, EventArgs e)
         {
             frmLogin login = new frmLogin();
-            login.Show();
-
+            login.ShowDialog(this);
+            //Enabled = false;
 
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.IsSplitterFixed = true;
@@ -116,6 +116,7 @@ namespace SQLManager
             
         }
 
+        //Execute Button
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             execute();
@@ -128,5 +129,11 @@ namespace SQLManager
                 execute();
             }
         }
+
+        public void showQueryContainer()
+        {
+            queryContainer.Visible = true;
+        }
+
     }
 }
