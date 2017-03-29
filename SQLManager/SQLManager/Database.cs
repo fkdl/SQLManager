@@ -13,8 +13,10 @@ namespace SQLManager
 
     class Database
     {
-        public string Message;
-        public string DatabaseName { get; }
+        public string Message { get; private set; }
+        public string DatabaseName { get; private set; }
+        public string ServerName { get; private set; }
+
         private string InfoMessage;
         private string ConnectionString;
         
@@ -22,21 +24,23 @@ namespace SQLManager
         //DEFAULT CONSTRUCTOR
         public Database()
         {   
-            string connectionMask = "Data Source={0}\\SQLEXPRESS; Initial Catalog={1}; Integrated Security={2}; User ID={3}; Password={4}";
+            string connectionMask = "Data Source={0}; Initial Catalog={1}; Integrated Security={2}; User ID={3}; Password={4}";
 
             try
             {
                 DatabaseConfiguration dbConfig = new DatabaseConfiguration();
                 Dictionary<string, string> connectionData = dbConfig.getConnectionData();
 
+                ServerName = connectionData["serverName"];
+                DatabaseName = connectionData["database"];
+
                 ConnectionString = string.Format(connectionMask,
-                                                    connectionData["serverName"],
-                                                    connectionData["database"],
+                                                    ServerName,
+                                                    DatabaseName,
                                                     connectionData["integratedSecurity"],
                                                     connectionData["username"],
                                                     connectionData["password"]
                                                 );
-
 
             }
             catch(Exception ex)
@@ -55,12 +59,14 @@ namespace SQLManager
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
+                    conn.Open();
                     conn.InfoMessage += new SqlInfoMessageEventHandler(OnInfoMessage);
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         adapter.Fill(dt);                        
+                        conn.Close();                      
                     }                    
 
                     if (dt.Columns.Count>0)
@@ -80,9 +86,11 @@ namespace SQLManager
 
                     if (matchCollection.Count > 0)
                     {
-                        string database = matchCollection[0].Groups["dbname"].Value;
+                        DatabaseName = matchCollection[0].Groups["dbname"].Value;
                         DatabaseConfiguration dbConfig = new DatabaseConfiguration();
-                        dbConfig.setDatabase(database);
+                        dbConfig.setDatabase(DatabaseName);
+                        //MessageBox.Show(DatabaseName);
+                        SqlConnection.ClearPool(conn);
                     }
 
                 }
