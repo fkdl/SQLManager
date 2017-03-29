@@ -150,13 +150,15 @@ namespace SQLManager
             if (db.isConnected())
             {
                 MessageBox.Show("Conectado Correctamente");
-                var frmSQLBuilder = Application.OpenForms["frmSQLBuilder"];
-                //frmSQLBuilder.Enabled = true;
-                ((frmSQLBuilder)this.Owner).showQueryContainer();
-                this.Close();
+                Close();
             }
            
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

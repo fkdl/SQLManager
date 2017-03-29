@@ -16,6 +16,7 @@ namespace SQLManager
         public string Message { get; private set; }
         public string DatabaseName { get; private set; }
         public string ServerName { get; private set; }
+        public static bool Connected = false;
 
         private string InfoMessage;
         private string ConnectionString;
@@ -25,7 +26,7 @@ namespace SQLManager
         public Database()
         {   
             string connectionMask = "Data Source={0}; Initial Catalog={1}; Integrated Security={2}; User ID={3}; Password={4}";
-
+            
             try
             {
                 DatabaseConfiguration dbConfig = new DatabaseConfiguration();
@@ -40,13 +41,12 @@ namespace SQLManager
                                                     connectionData["integratedSecurity"],
                                                     connectionData["username"],
                                                     connectionData["password"]
-                                                );
-
+                                                );              
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }            
+            }
 
         }
 
@@ -114,28 +114,25 @@ namespace SQLManager
         //VERIFICAR CONEXION
         public bool isConnected()
         {
-            bool connected=false;
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    Console.WriteLine("Connection Successful.");
                     using (SqlCommand cmd = new SqlCommand("SELECT 1", conn))
                     {
                         cmd.ExecuteScalar();
-                        Console.WriteLine("Sql Query Execution Successful.");
-                        connected = true;
+                        Connected = true;
                     }
                 }
 
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine("Failure", ex.Message);
+                Connected = false;
             }
 
-            return connected;
+            return Connected;
         }
 
 

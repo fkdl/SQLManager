@@ -85,18 +85,20 @@ namespace SQLManager
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {   
             frmLogin login = new frmLogin();
-            login.ShowDialog(this);
-            //Enabled = false;
-
+            login.ShowDialog();
+            
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.IsSplitterFixed = true;
 
-            FillDBList();
-
-            //MessageBox.Show(db.DatabaseName);
-
+            Database db = new Database();
+            //MessageBox.Show(.ToString());
+            if (Database.Connected)
+            {
+                queryContainer.Visible = true;
+                FillDBList();
+            }
 
         }
 
@@ -130,7 +132,7 @@ namespace SQLManager
             }
         }
 
-        public void showQueryContainer()
+        internal void showQueryContainer()
         {
             queryContainer.Visible = true;
         }
