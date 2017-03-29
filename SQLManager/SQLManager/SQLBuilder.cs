@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
 
 
 namespace SQLManager
 {
-    public partial class Form1 : Form
+    public partial class frmSQLBuilder : Form
     {
-        public Form1()
+        public frmSQLBuilder()
         {
             InitializeComponent();
         }
@@ -87,7 +85,11 @@ namespace SQLManager
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {       
+        {
+            frmLogin login = new frmLogin();
+            login.Show();
+
+
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.IsSplitterFixed = true;
 
