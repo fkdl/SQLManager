@@ -45,10 +45,10 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(458, 317);
+            this.pictureBox1.Size = new System.Drawing.Size(485, 358);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnCancel
             // 
@@ -58,7 +58,7 @@
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancel.Location = new System.Drawing.Point(274, 276);
+            this.btnCancel.Location = new System.Drawing.Point(281, 314);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
@@ -68,11 +68,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(222, 225);
+            this.txtPassword.Location = new System.Drawing.Point(244, 262);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(160, 20);
+            this.txtPassword.Size = new System.Drawing.Size(138, 20);
             this.txtPassword.TabIndex = 11;
             // 
             // btnConnect
@@ -82,7 +81,7 @@
             this.btnConnect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnConnect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnect.Location = new System.Drawing.Point(109, 276);
+            this.btnConnect.Location = new System.Drawing.Point(116, 314);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 7;
@@ -92,21 +91,19 @@
             // 
             // txtUser
             // 
-            this.txtUser.Enabled = false;
-            this.txtUser.Location = new System.Drawing.Point(222, 196);
+            this.txtUser.Location = new System.Drawing.Point(244, 234);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(160, 20);
+            this.txtUser.Size = new System.Drawing.Size(138, 20);
             this.txtUser.TabIndex = 12;
             // 
             // cmbServer
             // 
             this.cmbServer.Items.AddRange(new object[] {
-            "LAPTOP-I55RC7Q1\\SQLEXPRESS"});
-            this.cmbServer.Location = new System.Drawing.Point(222, 115);
+            "localhost\\SQLEXPRESS"});
+            this.cmbServer.Location = new System.Drawing.Point(222, 141);
             this.cmbServer.Name = "cmbServer";
             this.cmbServer.Size = new System.Drawing.Size(160, 21);
             this.cmbServer.TabIndex = 8;
-            this.cmbServer.Text = "localhost\\SQLEXPRESS";
             // 
             // cmbAuthentication
             // 
@@ -115,25 +112,24 @@
             this.cmbAuthentication.Items.AddRange(new object[] {
             "Windows Authentication",
             "SQL Authentication"});
-            this.cmbAuthentication.Location = new System.Drawing.Point(222, 169);
+            this.cmbAuthentication.Location = new System.Drawing.Point(222, 198);
             this.cmbAuthentication.Name = "cmbAuthentication";
             this.cmbAuthentication.Size = new System.Drawing.Size(160, 21);
             this.cmbAuthentication.TabIndex = 9;
+            this.cmbAuthentication.SelectedIndexChanged += new System.EventHandler(this.cmbAuthentication_SelectedIndexChanged_1);
             // 
             // cmbDatabase
             // 
-            this.cmbDatabase.Location = new System.Drawing.Point(222, 142);
+            this.cmbDatabase.Location = new System.Drawing.Point(222, 169);
             this.cmbDatabase.Name = "cmbDatabase";
             this.cmbDatabase.Size = new System.Drawing.Size(160, 21);
             this.cmbDatabase.TabIndex = 10;
-            this.cmbDatabase.Text = "SOF105";
-            this.cmbDatabase.SelectedIndexChanged += new System.EventHandler(this.cmbDatabase_SelectedIndexChanged);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 310);
+            this.ClientSize = new System.Drawing.Size(477, 352);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnConnect);
@@ -145,7 +141,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
-            this.Text = "Conectarse a la base de datos";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -23,7 +23,7 @@ namespace SQLManager
                 string database = ConfigurationManager.AppSettings["Database"];
                 string integratedSecurity = ConfigurationManager.AppSettings["IntegratedSecurity"];
                 string username = ConfigurationManager.AppSettings["Username"];
-                string password = ConfigurationManager.AppSettings["Passwprd"];
+                string password = ConfigurationManager.AppSettings["Password"];
 
                 connectionData = new Dictionary<string, string>
                 {
@@ -47,7 +47,7 @@ namespace SQLManager
         {
             try
             {
-                ConfigurationManager.AppSettings["Database"] = database; 
+                ConfigurationManager.AppSettings["Database"] = database;                
             }
             catch
             {
@@ -66,6 +66,35 @@ namespace SQLManager
             {
                 throw;
             }
+        }
+
+       public void updateAttributeTemp(string key, string value)
+        {
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+
+                    settings[key].Value = value;
+
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+            }
+            catch (ConfigurationErrorsException)
+            {
+                Console.WriteLine("Error writing app settings");
+            }
+        }
+
+        public void save()
+        {
+            Dictionary<string, string> connectionData = getConnectionData();
+
+            updateAttributeTemp("ServerName", connectionData["serverName"]);
+            updateAttributeTemp("Database", connectionData["database"]);
+            updateAttributeTemp("IntegratedSecurity", connectionData["integratedSecurity"]);
+            updateAttributeTemp("Username", connectionData["username"]);
+
         }
 
     }

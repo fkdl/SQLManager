@@ -77,29 +77,35 @@ namespace SQLManager
             Database db = new Database();
             DataTable dbList = new DataTable();
 
-            dbList = db.query("EXEC SP_DATABASES");
+            dbList = db.query("SELECT name FROM sys.databases");
 
             cbMenuDBList.ComboBox.DataSource = dbList;
-            cbMenuDBList.ComboBox.DisplayMember = "DATABASE_NAME";
+            cbMenuDBList.ComboBox.DisplayMember = "name";
             cbMenuDBList.ComboBox.Text = db.DatabaseName;
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {   
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
-            
-            splitContainer1.Panel2Collapsed = true;
-            splitContainer1.IsSplitterFixed = true;
+        {
+            openLoginForm("Conexion al servidorR");
+        }
 
-            Database db = new Database();
-            //MessageBox.Show(.ToString());
-            if (Database.Connected)
+        public void openLoginForm(string frmText)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Text = frmText;
+            if (frmLogin.ShowDialog() == DialogResult.OK)
             {
+                connectToolStripMenuItem.Enabled = false;
+
+                splitContainer1.Panel2Collapsed = true;
+                splitContainer1.IsSplitterFixed = true;
+                
+                queryMenu.Visible = true;
                 queryContainer.Visible = true;
+                cbMenuDBList.Visible = true;
+                btnExecute.Visible = true;
                 FillDBList();
             }
-
         }
 
         private void cbMenuDBList_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,10 +138,19 @@ namespace SQLManager
             }
         }
 
-        internal void showQueryContainer()
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            queryContainer.Visible = true;
+            openLoginForm("Cambiar conexion de servidor");
         }
 
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openLoginForm("Conexion al servidor");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

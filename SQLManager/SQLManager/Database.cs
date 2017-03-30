@@ -25,7 +25,7 @@ namespace SQLManager
         //DEFAULT CONSTRUCTOR
         public Database()
         {   
-            string connectionMask = "Data Source={0}; Initial Catalog={1}; Integrated Security={2}; User ID={3}; Password={4}";
+            string connectionMask = "Data Source={0}; Initial Catalog={1}; Integrated Security={2}; User Id={3}; Password={4}";
             
             try
             {
@@ -127,8 +127,9 @@ namespace SQLManager
                 }
 
             }
-            catch
+            catch(Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 Connected = false;
             }
 
