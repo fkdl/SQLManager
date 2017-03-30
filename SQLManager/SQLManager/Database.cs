@@ -50,6 +50,13 @@ namespace SQLManager
 
         }
 
+        public string queryFilter(string query)
+        {
+            string output = Regex.Replace(query, @"(^|\s|\n)(?:go[\s;])", " ", RegexOptions.IgnoreCase);
+
+            return output;
+        }
+
         //QUERY EXECUTION
         public DataTable query(string query)
         {
@@ -62,7 +69,7 @@ namespace SQLManager
                     conn.Open();
                     conn.InfoMessage += new SqlInfoMessageEventHandler(OnInfoMessage);
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(queryFilter(query), conn))
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         adapter.Fill(dt);                        

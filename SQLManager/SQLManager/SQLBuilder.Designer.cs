@@ -105,19 +105,19 @@
             // connectToolStripMenuItem
             // 
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(116, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -197,7 +197,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.tabsRM);
             this.splitContainer1.Panel2MinSize = 0;
             this.splitContainer1.Size = new System.Drawing.Size(1141, 529);
-            this.splitContainer1.SplitterDistance = 259;
+            this.splitContainer1.SplitterDistance = 258;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -210,7 +210,7 @@
             this.tabsQuery.Name = "tabsQuery";
             this.tabsQuery.Padding = new System.Drawing.Point(8, 3);
             this.tabsQuery.SelectedIndex = 0;
-            this.tabsQuery.Size = new System.Drawing.Size(1141, 259);
+            this.tabsQuery.Size = new System.Drawing.Size(1141, 258);
             this.tabsQuery.TabIndex = 5;
             // 
             // SQLQuery1
@@ -220,7 +220,7 @@
             this.SQLQuery1.Location = new System.Drawing.Point(4, 23);
             this.SQLQuery1.Name = "SQLQuery1";
             this.SQLQuery1.Padding = new System.Windows.Forms.Padding(3);
-            this.SQLQuery1.Size = new System.Drawing.Size(1133, 232);
+            this.SQLQuery1.Size = new System.Drawing.Size(1133, 231);
             this.SQLQuery1.TabIndex = 0;
             this.SQLQuery1.Text = "SQLQuery1.sql";
             this.SQLQuery1.UseVisualStyleBackColor = true;
@@ -234,7 +234,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(10);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(1107, 226);
+            this.panel3.Size = new System.Drawing.Size(1107, 225);
             this.panel3.TabIndex = 4;
             // 
             // txtQuery
@@ -246,7 +246,7 @@
             this.txtQuery.HideSelection = false;
             this.txtQuery.Location = new System.Drawing.Point(10, 5);
             this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(1097, 221);
+            this.txtQuery.Size = new System.Drawing.Size(1097, 220);
             this.txtQuery.TabIndex = 0;
             this.txtQuery.Text = "";
             // 
@@ -257,7 +257,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(20, 226);
+            this.panel2.Size = new System.Drawing.Size(20, 225);
             this.panel2.TabIndex = 3;
             // 
             // tabsRM
@@ -271,7 +271,7 @@
             this.tabsRM.Multiline = true;
             this.tabsRM.Name = "tabsRM";
             this.tabsRM.SelectedIndex = 0;
-            this.tabsRM.Size = new System.Drawing.Size(1141, 265);
+            this.tabsRM.Size = new System.Drawing.Size(1141, 266);
             this.tabsRM.TabIndex = 4;
             // 
             // tabResults
@@ -281,7 +281,7 @@
             this.tabResults.Location = new System.Drawing.Point(4, 23);
             this.tabResults.Name = "tabResults";
             this.tabResults.Padding = new System.Windows.Forms.Padding(3);
-            this.tabResults.Size = new System.Drawing.Size(1133, 238);
+            this.tabResults.Size = new System.Drawing.Size(1133, 239);
             this.tabResults.TabIndex = 0;
             this.tabResults.Text = "Results";
             this.tabResults.UseVisualStyleBackColor = true;
@@ -302,7 +302,7 @@
             this.viewResults.Location = new System.Drawing.Point(3, 3);
             this.viewResults.Name = "viewResults";
             this.viewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.viewResults.Size = new System.Drawing.Size(1127, 232);
+            this.viewResults.Size = new System.Drawing.Size(1127, 233);
             this.viewResults.TabIndex = 0;
             // 
             // tabMessages
@@ -311,7 +311,7 @@
             this.tabMessages.Location = new System.Drawing.Point(4, 23);
             this.tabMessages.Name = "tabMessages";
             this.tabMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMessages.Size = new System.Drawing.Size(1133, 238);
+            this.tabMessages.Size = new System.Drawing.Size(1133, 239);
             this.tabMessages.TabIndex = 1;
             this.tabMessages.Text = "Messages";
             this.tabMessages.UseVisualStyleBackColor = true;
@@ -326,7 +326,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(10);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(1127, 232);
+            this.panel4.Size = new System.Drawing.Size(1127, 233);
             this.panel4.TabIndex = 5;
             // 
             // txtMessages
@@ -338,7 +338,7 @@
             this.txtMessages.HideSelection = false;
             this.txtMessages.Location = new System.Drawing.Point(20, 20);
             this.txtMessages.Name = "txtMessages";
-            this.txtMessages.Size = new System.Drawing.Size(1107, 212);
+            this.txtMessages.Size = new System.Drawing.Size(1107, 213);
             this.txtMessages.TabIndex = 3;
             this.txtMessages.Text = "";
             // 
@@ -353,7 +353,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(1107, 212);
+            this.textBox1.Size = new System.Drawing.Size(1107, 213);
             this.textBox1.TabIndex = 2;
             this.textBox1.WordWrap = false;
             // 
